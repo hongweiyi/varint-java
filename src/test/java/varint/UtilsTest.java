@@ -1,7 +1,7 @@
 package varint;
 
-import com.hongweiyi.utils.varint.SimpleVarintUtils;
-import com.hongweiyi.utils.varint.StreamVaruintUtils;
+import com.hongweiyi.utils.varint.LengthedVaruintUtils;
+import com.hongweiyi.utils.varint.NormalVarintUtils;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -14,17 +14,17 @@ import static org.junit.Assert.assertEquals;
 public class UtilsTest {
 
     @Test
-    public void testSimple() {
+    public void testNormal() {
         for (int i = 0; i < Integer.MAX_VALUE; i++) {
-            int value = SimpleVarintUtils.varint2int(SimpleVarintUtils.int2varint(i));
+            int value = NormalVarintUtils.varint2int(NormalVarintUtils.int2varint(i));
             assertEquals(value, i);
         }
     }
 
     @Test
-    public void testStream() {
+    public void testLengthed() {
         for (int i = 0; i < (Integer.MAX_VALUE >> 2); i++) {
-            int value = StreamVaruintUtils.varint2int(StreamVaruintUtils.int2varint(i));
+            int value = LengthedVaruintUtils.varint2int(LengthedVaruintUtils.int2varint(i));
             assertEquals(value, i);
         }
     }
