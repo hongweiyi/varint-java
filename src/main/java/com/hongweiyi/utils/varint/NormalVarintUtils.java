@@ -7,7 +7,7 @@ package com.hongweiyi.utils.varint;
  * @author hongweiyi
  * @since 2014-Jun-21
  */
-public class SimpleVarintUtils {
+public class NormalVarintUtils {
 
     public static byte[] int2varint(int value) {
         byte[] data = new byte[5];
