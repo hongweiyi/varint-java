@@ -34,15 +34,8 @@ public class UtilsTest {
 
         for (int i = 0; i < (Integer.MAX_VALUE >> 2); i++) {
             byte[] bytes = LengthedVaruintUtils.int2varint(i);
-            if ((i << 2) <= 0xFC) {
-                assertEquals("i=" + i, 1, LengthedVaruintUtils.getBytesLength(bytes[0]));
-            } else if ((i << 2) <= 0xFFFC) {
-                assertEquals("i=" + i, 2, LengthedVaruintUtils.getBytesLength(bytes[0]));
-            } else if ((i << 2) <= 0xFFFFFC) {
-                assertEquals("i=" + i, 3, LengthedVaruintUtils.getBytesLength(bytes[0]));
-            } else if ((i << 2) <= 0x7FFFFFFC) {
-                assertEquals("i=" + i, 4, LengthedVaruintUtils.getBytesLength(bytes[0]));
-            }
+            int len = bytes.length;
+            assertEquals(len, LengthedVaruintUtils.getBytesLength(bytes[0]));
         }
     }
 }
